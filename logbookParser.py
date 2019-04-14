@@ -4,6 +4,7 @@ from tabulate import tabulate
 
 
 PIC = "BASSONS"
+ROWS_PAGE = 14
 
 def parseFlights(filename):
     with open(filename) as f:
@@ -71,7 +72,7 @@ def printFlights(flights):
 
         rows.append(row)
 
-        if i == 4 or flight == flights[-1]:
+        if i == ROWS_PAGE - 1 or flight == flights[-1]:
             i = 0
 
             rows.append(["", "", "", "", "", "", "Total PAGE:", str(totalPageTime), "", "", str(picPageTime), str(doublePageTime)])
