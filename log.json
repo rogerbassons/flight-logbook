@@ -1,0 +1,17 @@
+{
+	"flights": 
+	[
+		{
+
+			"departurePlace": "VILA",
+			"departureTime": "2016-06-17T18:00:00",
+			"arrivalPlace": "VILA",
+			"arrivalTime": "2016-06-17T18:50:00",
+			"type": "P92 Echo",
+			"registration": "EC-LGH",
+			"pic": "TORRA",
+			"landings": 1
+		}
+	]
+
+}
