@@ -145,7 +145,7 @@ def parseDateTimes(departureTime, arrivalTime, timeEnroute):
             minutes = int(ate[0])
 
         if (minutes >= 60):
-            raise ValueError("minutes to big")
+            raise ValueError("minutes too big")
         ata = atd + timedelta(hours=hours, minutes=minutes)
     else:
         ata = datetime.strptime(arrivalTime, "%Y-%m-%dT%H:%M")
