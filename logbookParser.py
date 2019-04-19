@@ -32,6 +32,9 @@ def parseFlights(filename):
 
         return flights
 
+def deltaStr(delta):
+    return "{:02d}:{:02d}".format(int(delta.total_seconds() // 3600), int((delta.total_seconds() % 3600) // 60))
+
 def printFlights(flights):
     headers = ["Date", "Dep. Place", "Dep. Time", "Arr Place", "Arr Time", "Type", "Reg.", "Total Time", "PIC Name", "Landings", "PIC", "Double"]
     rows = []
@@ -90,15 +93,15 @@ def printFlights(flights):
 
             rows += [""]
 
-            rows.append(["", "", "", "", "", "", "Total PAGE:", str(totalPageTime), "", str(pageLandings), str(picPageTime), str(doublePageTime)])
-            rows.append(["", "", "", "", "", "", "Total PREV:", str(totalTime), "", str(landings), str(picTime), str(doubleTime)])
+            rows.append(["", "", "", "", "", "", "Total PAGE:", deltaStr(totalPageTime), "", str(pageLandings), deltaStr(picPageTime), deltaStr(doublePageTime)])
+            rows.append(["", "", "", "", "", "", "Total PREV:", deltaStr(totalTime), "", str(landings), deltaStr(picTime), deltaStr(doubleTime)])
  
             landings += pageLandings
             totalTime += totalPageTime
             picTime += picPageTime
             doubleTime += doublePageTime
 
-            rows.append(["", "", "", "", "", "", "Total:", str(totalTime), "", str(landings), str(picTime), str(doubleTime)])
+            rows.append(["", "", "", "", "", "", "Total:", deltaStr(totalTime), "", str(landings), deltaStr(picTime), deltaStr(doubleTime)])
  
             pageLandings = 0
             totalPageTime = timedelta()
@@ -112,7 +115,7 @@ def printFlights(flights):
             i += 1
 
     
-    print("Last year total time: " + str(lastYearTime))
+    print("Last year total time: " + deltaStr(lastYearTime))
 
 
 
